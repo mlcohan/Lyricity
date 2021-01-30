@@ -22,6 +22,13 @@ https://developer.spotify.com/documentation/web-api/<br>
 https://developer.musixmatch.com/ <br>
 http://www.chartlyrics.com/api.aspx <br>
 
+Breakdown of Tasks:
+
+-make sure API's work
+
+-psuedo code HTML
+-psuedo code CSS
+-psudo code JS
 
 
 
