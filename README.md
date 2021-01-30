@@ -14,13 +14,13 @@ SO THAT I can hear the song, see the lyrics, and learn more about the song.
 
 Wireframe: 
 
-
-
+![wireframe](./wireframe1.png)
 
 
 APIs: 
-https://developer.spotify.com/documentation/web-api/
-https://developer.musixmatch.com/ 
+https://developer.spotify.com/documentation/web-api/<br>
+https://developer.musixmatch.com/ <br>
+http://www.chartlyrics.com/api.aspx <br>
 
 
 
