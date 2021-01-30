@@ -1,5 +1,8 @@
 # team9
 
+<<<<<<< HEAD
+updated readme. good? yeah? mhmm good
+=======
 Title: What's that song? 
 
 
@@ -27,3 +30,4 @@ http://www.chartlyrics.com/api.aspx <br>
 
 
 
+>>>>>>> cf3ad23c4303608fe310cad6e2da764ce2007e1e
