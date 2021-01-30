@@ -1,8 +1,5 @@
 # team9
 
-<<<<<<< HEAD
-updated readme. good? yeah? mhmm good
-=======
 Title: What's that song? 
 
 
@@ -17,7 +14,7 @@ SO THAT I can hear the song, see the lyrics, and learn more about the song.
 
 Wireframe: 
 
-![wireframe](./wireframe1.png)
+![wireframe1](https://user-images.githubusercontent.com/69485203/106369015-f2d40e00-6302-11eb-824a-51060ce1ed9b.png)
 
 
 APIs: 
@@ -30,4 +27,3 @@ http://www.chartlyrics.com/api.aspx <br>
 
 
 
->>>>>>> cf3ad23c4303608fe310cad6e2da764ce2007e1e
