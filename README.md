@@ -14,7 +14,7 @@ SO THAT I can hear the song, see the lyrics, and learn more about the song.
 
 Wireframe: 
 
-![wireframe](./wireframe1.png)
+![wireframe1](https://user-images.githubusercontent.com/69485203/106368101-0c258c00-62fc-11eb-9f3a-cb30c82c8c12.png)
 
 
 APIs: 
