@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>What's That Song Web App</title>
   </head>
   <body>
     <header class="head">
@@ -23,8 +23,8 @@
     </header>
     <section class="mainpage">
       <div class="songDisplay">
-        <form action="">
-          <input type="text" />
+        <form action="" id="formInput">
+          <input type="text" id="songInput">
           <button class="btn" id="searchBtn">
             <i class="fas fa-search"></i>
           </button>
@@ -34,7 +34,7 @@
         <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
       </div>
       <div class="lyrics">
-        <p>
+        <p id="lyrics">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
           ipsum, quod nisi nemo perferendis asperiores eos praesentium
           temporibus nulla corporis ullam consequuntur minima neque harum
@@ -50,6 +50,7 @@
         </p>
       </div>
     </section>
-    <script src="./assets/js/"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
