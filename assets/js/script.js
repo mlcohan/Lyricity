@@ -23,7 +23,7 @@ searchBtn.addEventListener('click', function (event) {
   var song = button.siblings('#song').val();
   var artist = button.siblings("#artist").val();
   localStorage.setItem("song", song);
-  localStorage.setItem("artist", artist)
+  localStorage.setItem("artist", artist);
   renderInput();
 })
 
@@ -31,13 +31,11 @@ function getLyricsApi() {
   var song = encodeURIComponent(localStorage.getItem("song"));
   var artist = encodeURIComponent(localStorage.getItem("artist"));
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
-  console.log(requestUrl);
   fetch(requestUrl)
     .then(function (response) {
       return response.json(); 
     })
     .then(function (data) {
-      console.log(data);
       document.getElementById('lyrics').innerText = data.lyrics;
     })
 }
