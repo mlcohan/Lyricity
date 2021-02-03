@@ -1,3 +1,4 @@
+/* Global stuff */
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+/* Header Section */
 .head {
   min-height: 10vh;
   background: rgb(31, 29, 29);
@@ -19,8 +21,11 @@ html {
   font-size: 3rem;
 }
 
+/*Main section*/
+
 .main {
   min-height: 90vh;
+  position: relative;
 }
 
 .songDisplay {
@@ -54,6 +59,10 @@ html {
   border-radius: 200px;
 }
 
+.animateImg {
+  animation: rotateImg 20s linear infinite;
+}
+
 #pauseBtn {
   margin: 2rem;
 }
@@ -72,4 +81,59 @@ html {
   padding: 2rem;
   text-align: center;
   line-height: 40px;
+}
+
+/* Favorites Section */
+
+.favorites {
+  min-height: 90vh;
+  width: 25%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 9.7rem;
+  transform: translateX(-50rem);
+  opacity: 0;
+}
+
+.favorites.slide {
+  transform: translateX(0rem);
+  opacity: 1;
+}
+
+.favorites h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.favList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fav {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 2rem 5rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+
+#fav:hover {
+  background: darkgray;
+}
+
+/* animations */
+
+@keyframes rotateImg {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
