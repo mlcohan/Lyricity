@@ -1,17 +1,17 @@
-var searchBtn = document.getElementById('searchBtnArtist');
+var searchBtn = document.getElementById('searchBtn');
 var lyrics = document.getElementById('lyrics');
-var apiKey = "fcd1b48c91b72419936d93f94cc0104f";
-var proxyurl = 'https://cors-anywhere.herokuapp.com/';
+var formInput = document.querySelector(".formInput");
 
 // call function that will keep input via localstorage on page upon refresh
 renderInput();
 
 // function for pulling input from localstorage and inputing into value
 function renderInput() {
-  var value = localStorage.getItem("value");
-  var formInput = $("#formInput").children("input");
-  $("#formInput").children("input").val(value);
-  if (!value) {
+  var song = localStorage.getItem("song");
+  var artist = localStorage.getItem("artist");
+  // formInput.children("#song").val(song);
+  // formInput.children("#artist").val(artist);
+  if (!song || !artist) {
     return;
   }
 }
@@ -20,24 +20,26 @@ function renderInput() {
 searchBtn.addEventListener('click', function (event) {
   event.preventDefault();
   var button = $(this);
-  var value = button.parent().children('input').val();
-  localStorage.setItem("value", value);
+  var song = button.siblings('#song').val();
+  var artist = button.siblings("#artist").val();
+  localStorage.setItem("song", song);
+  localStorage.setItem("artist", artist)
   renderInput();
 })
 
 function getLyricsApi() {
-  var value = encodeURIComponent(localStorage.getItem("value"));
-  var requestUrl = "https://api.lyrics.ovh/v1/" + value + "/title";
+  var song = encodeURIComponent(localStorage.getItem("song"));
+  var artist = encodeURIComponent(localStorage.getItem("artist"));
+  var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
   console.log(requestUrl);
-  fetch(proxyurl + requestUrl)
+  fetch(requestUrl)
     .then(function (response) {
-      return response.json();
+      return response.json(); 
     })
     .then(function (data) {
       console.log(data);
+      document.getElementById('lyrics').innerText = data.lyrics;
     })
-
-    // console.log(response.json(message.body.track_list));
 }
 
 searchBtn.addEventListener('click', getLyricsApi);
