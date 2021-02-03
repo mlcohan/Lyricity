@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Group 9 Project</title>
+  <title>What's That Song Web App</title>
 </head>
 
 <body>
@@ -19,9 +19,15 @@
   </header>
   <section class="mainpage">
     <div class="songDisplay">
-      <form action="">
-        <input type="text" />
-        <button class="btn" id="searchBtn">
+      <form action="" id="formInput">
+        <input type="text" id="artistInput">
+        <button class="btn" id="searchBtnArtist">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <form action="" id="formInput">
+        <input type="text" id="titleInput">
+        <button class="btn" id="searchBtnTitle">
           <i class="fas fa-search"></i>
         </button>
       </form>
@@ -33,7 +39,7 @@
       </div>
     </div>
     <div class="lyrics">
-      <p>
+      <p id="lyrics">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
         ipsum, quod nisi nemo perferendis asperiores eos praesentium
         temporibus nulla corporis ullam consequuntur minima neque harum
@@ -49,6 +55,7 @@
       </p>
     </div>
   </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 
