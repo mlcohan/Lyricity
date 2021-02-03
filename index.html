@@ -19,18 +19,23 @@
   </head>
   <body>
     <header class="head">
-      <h1>What's That Song?</h1>
+      <h1>Lyricity</h1>
     </header>
     <section class="mainpage">
       <div class="songDisplay">
         <form action="">
-          <input type="text" />
+          <input type="text" placeholder="Song title" />
+          <input type="text" placeholder="Artist" />
           <button class="btn" id="searchBtn">
             <i class="fas fa-search"></i>
           </button>
         </form>
-        <img src="./assets/images/mic.jpg" alt="meh" />
-
+        <img
+          id="song-art-display"
+          class=""
+          src="./assets/images/mic.jpg"
+          alt="meh"
+        />
         <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
       </div>
       <div class="lyrics">
@@ -50,6 +55,19 @@
         </p>
       </div>
     </section>
+    <div class="favorites">
+      <h2>Your Favorites</h2>
+      <div class="favList">
+        <button id="fav">Song Name</button>
+        <button id="fav">Song Name</button>
+        <button id="fav">Song Name</button>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/"></script>
   </body>
 </html>
