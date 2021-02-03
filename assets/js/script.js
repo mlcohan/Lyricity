@@ -1,11 +1,18 @@
-var searchBtn = document.getElementById('searchBtn');
-var lyrics = document.getElementById('lyrics');
+var searchBtn = document.getElementById("searchBtn");
+var lyrics = document.getElementById("lyrics");
+const favoriteBtn = document.querySelector("#favoriteTab");
+
+
+favoriteBtn.addEventListener("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.toggle("slide");
+});
 
 // new code for localStorage
-searchBtn.addEventListener('click', function (event) {
+searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var button = $(this);
-  var song = button.siblings('#song').val();
+  var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
   localStorage.setItem("song", song);
   localStorage.setItem("artist", artist);
@@ -17,11 +24,11 @@ function getLyricsApi() {
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
   fetch(requestUrl)
     .then(function (response) {
-      return response.json(); 
+      return response.json();
     })
     .then(function (data) {
       document.getElementById('lyrics').innerText = data.lyrics;
     })
 }
 
-searchBtn.addEventListener('click', getLyricsApi);
+searchBtn.addEventListener("click", getLyricsApi);
