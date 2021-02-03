@@ -37,6 +37,8 @@ function getLyricsApi() {
     .then(function (data) {
       console.log(data);
     })
+
+    console.log(response.json(message.body.track_list));
 }
 
 searchBtn.addEventListener('click', getLyricsApi);
