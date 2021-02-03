@@ -1,4 +1,4 @@
-var searchBtn = document.getElementById('searchBtn');
+var searchBtn = document.getElementById('searchBtnArtist');
 var lyrics = document.getElementById('lyrics');
 var apiKey = "fcd1b48c91b72419936d93f94cc0104f";
 var proxyurl = 'https://cors-anywhere.herokuapp.com/';
@@ -10,7 +10,6 @@ renderInput();
 function renderInput() {
   var value = localStorage.getItem("value");
   var formInput = $("#formInput").children("input");
-  console.log(formInput);
   $("#formInput").children("input").val(value);
   if (!value) {
     return;
@@ -28,7 +27,7 @@ searchBtn.addEventListener('click', function (event) {
 
 function getLyricsApi() {
   var value = encodeURIComponent(localStorage.getItem("value"));
-  var requestUrl = "https://api.musixmatch.com/ws/1.1/track.search?apikey=" + apiKey + "&format=json&q_lyrics=" + value + "&quorum_factor=1";
+  var requestUrl = "https://api.lyrics.ovh/v1/" + value + "/title";
   console.log(requestUrl);
   fetch(proxyurl + requestUrl)
     .then(function (response) {
@@ -38,7 +37,7 @@ function getLyricsApi() {
       console.log(data);
     })
 
-    console.log(response.json(message.body.track_list));
+    // console.log(response.json(message.body.track_list));
 }
 
 searchBtn.addEventListener('click', getLyricsApi);
