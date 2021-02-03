@@ -7,11 +7,11 @@ renderInput();
 
 // function for pulling input from localstorage and inputing into value
 function renderInput() {
-  var value = localStorage.getItem("value");
-  var key = localStorage.getItem("key");
-  var formInput = $("#formInput").children("input");
-  $("#formInput").children("input").val(value);
-  if (!key || !value) {
+  var song = localStorage.getItem("song");
+  var artist = localStorage.getItem("artist");
+  // formInput.children("#song").val(song);
+  // formInput.children("#artist").val(artist);
+  if (!song || !artist) {
     return;
   }
 }
@@ -28,8 +28,8 @@ searchBtn.addEventListener('click', function (event) {
 })
 
 function getLyricsApi() {
-  var song = localStorage.getItem("song");
-  var artist = localStorage.getItem("artist");
+  var song = encodeURIComponent(localStorage.getItem("song"));
+  var artist = encodeURIComponent(localStorage.getItem("artist"));
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
   console.log(requestUrl);
   fetch(requestUrl)
