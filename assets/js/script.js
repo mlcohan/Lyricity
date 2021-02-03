@@ -1,6 +1,7 @@
-var searchBtn = document.getElementById('searchBtn');
-var lyrics = document.getElementById('lyrics');
+var searchBtn = document.getElementById("searchBtn");
+var lyrics = document.getElementById("lyrics");
 var formInput = document.querySelector(".formInput");
+const favoriteBtn = document.querySelector("#favoriteTab");
 
 // call function that will keep input via localstorage on page upon refresh
 renderInput();
@@ -15,17 +16,21 @@ function renderInput() {
     return;
   }
 }
+favoriteBtn.addEventListener("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.toggle("slide");
+});
 
 // new code for localStorage
-searchBtn.addEventListener('click', function (event) {
+searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var button = $(this);
-  var song = button.siblings('#song').val();
+  var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
   localStorage.setItem("song", song);
-  localStorage.setItem("artist", artist)
+  localStorage.setItem("artist", artist);
   renderInput();
-})
+});
 
 function getLyricsApi() {
   var song = encodeURIComponent(localStorage.getItem("song"));
@@ -34,12 +39,12 @@ function getLyricsApi() {
   console.log(requestUrl);
   fetch(requestUrl)
     .then(function (response) {
-      return response.json(); 
+      return response.json();
     })
     .then(function (data) {
       console.log(data);
-      document.getElementById('lyrics').innerText = data.lyrics;
-    })
+      document.getElementById("lyrics").innerText = data.lyrics;
+    });
 }
 
-searchBtn.addEventListener('click', getLyricsApi);
+searchBtn.addEventListener("click", getLyricsApi);
