@@ -11,7 +11,7 @@ function renderInput() {
   var key = localStorage.getItem("key");
   var formInput = $("#formInput").children("input");
   $("#formInput").children("input").val(value);
-  if (!value || !key) {
+  if (!key || !value) {
     return;
   }
 }
@@ -20,24 +20,25 @@ function renderInput() {
 searchBtn.addEventListener('click', function (event) {
   event.preventDefault();
   var button = $(this);
-  var key = button.siblings('#song').val();
-  var value = button.siblings("#artist").val();
-  localStorage.setItem(key, value);
+  var song = button.siblings('#song').val();
+  var artist = button.siblings("#artist").val();
+  localStorage.setItem("song", song);
+  localStorage.setItem("artist", artist)
   renderInput();
 })
 
 function getLyricsApi() {
-  var song = localStorage.getItem("key");
-  console.log(typeof song);
-  var artist = localStorage.getItem("value");
+  var song = localStorage.getItem("song");
+  var artist = localStorage.getItem("artist");
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
   console.log(requestUrl);
   fetch(requestUrl)
     .then(function (response) {
-      return response.json();
+      return response.json(); 
     })
     .then(function (data) {
       console.log(data);
+      document.getElementById('lyrics').innerText = data.lyrics;
     })
 }
 
