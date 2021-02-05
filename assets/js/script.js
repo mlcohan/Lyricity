@@ -12,8 +12,12 @@ function getFmApi(song, artist) {
       return response.json();
     })
     .then(function(data){
-      console.log(data);
-      albumDisplay.src = data.track.album.image[3]["#text"];
+      albumCover = data.track.album.image[3]["#text"];
+      if(albumCover == ""){
+        albumDisplay.src = "./assets/images/mic.jpg";
+      } else {
+        albumDisplay.src = albumCover;
+      }
     })
 }
 // calling kanye rest api
@@ -22,7 +26,9 @@ function kanye() {
     url: "https://api.kanye.rest",
     method: "GET",
   }).then(function (data) {
-    lyrics.innerHTML = "Sorry, we didn't find any lyrics but here's a nice quote from Kanye!<br> " + '"' + data.quote + '"<br> - Kanye West'  ;
+    lyrics.innerHTML = "Sorry, we didn't find any lyrics but here's a nice quote from Kanye!<br> " + '"' + data.quote + '"<br> - Kanye West';
+    albumDisplay.src = "./assets/images/kanye-west.jpg"
+    
   });
 }
 // defining function that calls the server-side API for lyrics
@@ -67,4 +73,15 @@ searchBtn.addEventListener("click", function (event) {
   }
   getLyricsApi();
   getFmApi(song, artist);
+  displayName(song, artist);
 });
+function displayName(song, artist) {
+  document.getElementById('songNameDisplay').innerText = titleCase(song) + " by " + titleCase(artist);
+}
+function titleCase(string) {
+  var sentence = string.toLowerCase().split();
+  for(var i = 0; i< sentence.length; i++){
+     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+  }
+return sentence;
+}
