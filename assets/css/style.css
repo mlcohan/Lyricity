@@ -72,6 +72,7 @@ html {
 
 .songDisplay img {
   border-radius: 200px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .animateImg {
@@ -113,13 +114,33 @@ html {
 
 .favorites {
   min-height: 90vh;
-  width: 25%;
+  width: 23%;
+  background: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 9.7rem;
   transition: all ease 0.5s;
   transform: translateX(-50rem);
   opacity: 0;
+  border-bottom-right-radius: 15px;
+}
+
+#closeFavs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: blue;
+  padding: 1rem;
+  border: none;
+  border-bottom-left-radius: 15px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all ease 0.5s;
+}
+#closeFavs:hover {
+  background: rgb(73, 103, 236);
+  color: black;
 }
 
 .favorites.slide {
@@ -162,5 +183,41 @@ html {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .favorites {
+    width: 50%;
+    top: 13.7rem;
+  }
+  #lyrics {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .favorites {
+    width: 50%;
+    top: 10.2rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #favoriteTab {
+    font-size: 1rem;
+    top: 45px;
+    left: 10px;
+  }
+  .favorites {
+    width: 100%;
+    background: white;
+    top: 8.2rem;
+  }
+  #favoriteTab:hover {
+    color: black;
+    border-radius: 15px;
+    background: white;
+    padding: 1rem;
   }
 }

@@ -18,13 +18,18 @@ function getLyricsApi() {
       return response.json();
     })
     .then(function (data) {
-      document.getElementById('lyrics').innerText = data.lyrics;
-    })
+      document.getElementById("lyrics").innerText = data.lyrics;
+    });
 }
 // toggles the favorite section on click
 favoriteBtn.addEventListener("click", function () {
   const favoriteSection = document.querySelector(".favorites");
   favoriteSection.classList.toggle("slide");
+});
+
+$("#closeFavs").on("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.remove("slide");
 });
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
@@ -32,11 +37,12 @@ searchBtn.addEventListener("click", function (event) {
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
-  if (!song || !artist){
+  $(".songImg").addClass("animateImg");
+  if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
     localStorage.setItem("song", song);
     localStorage.setItem("artist", artist);
   }
   getLyricsApi();
-})
+});
