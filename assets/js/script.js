@@ -29,6 +29,7 @@ searchBtn.addEventListener("click", function (event) {
   var artist = button.siblings("#artist").val();
   localStorage.setItem("song", song);
   localStorage.setItem("artist", artist);
+  $(".songImg").addClass("animateImg");
   renderInput();
 });
 
