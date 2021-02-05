@@ -48,6 +48,18 @@ function getLyricsApi() {
       }
     });
 }
+// this is the function to display song title and name below the album pic
+function displayName(song, artist) {
+  document.getElementById('songNameDisplay').innerText = titleCase(song) + " by " + titleCase(artist);
+}
+// this is to titlecase the song and artist
+function titleCase(string) {
+  var sentence = string.toLowerCase().split();
+  for(var i = 0; i< sentence.length; i++){
+     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+  }
+return sentence;
+}
 // toggles the favorite section on click
 favoriteBtn.addEventListener("click", function () {
   const favoriteSection = document.querySelector(".favorites");
@@ -75,13 +87,3 @@ searchBtn.addEventListener("click", function (event) {
   getFmApi(song, artist);
   displayName(song, artist);
 });
-function displayName(song, artist) {
-  document.getElementById('songNameDisplay').innerText = titleCase(song) + " by " + titleCase(artist);
-}
-function titleCase(string) {
-  var sentence = string.toLowerCase().split();
-  for(var i = 0; i< sentence.length; i++){
-     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-  }
-return sentence;
-}
