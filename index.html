@@ -1,70 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>What's That Song Web App</title>
-  </head>
-  <body>
-    <header class="head">
-      <h1 id="favoriteTab">Favorites</h1>
-      <h1>Lyricity</h1>
-    </header>
-    <section class="mainpage">
-      <div class="songDisplay">
-        <form action="">
-          <input type="text" placeholder="Song title" id="song"/>
-          <input type="text" placeholder="Artist" id="artist"/>
-          <button class="btn" id="searchBtn">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-        <img class="animateImg"src="./assets/images/mic.jpg" alt="meh" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>What's That Song Web App</title>
+</head>
+
+<body>
+  <header class="head">
+    <h1 id="favoriteTab">Favorites</h1>
+    <h1>Lyricity</h1>
+  </header>
+  <section class="mainpage">
+    <div class="songDisplay">
+      <form action="">
+        <input type="text" placeholder="Song title" id="song" />
+        <input type="text" placeholder="Artist" id="artist" />
+        <button class="btn" id="searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <img class="animateImg" src="./assets/images/mic.jpg" alt="meh" />
       <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
       <h2><span id="songNameDisplay">Song name og here</span> by <span id="artistNameDisplay">artist</span></h2>
       <button id="heartBtn"><i class="far fa-heart"></i></button>
-      </div>
-      
-      <div class="lyrics">
-        <p id="lyrics">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
-          ipsum, quod nisi nemo perferendis asperiores eos praesentium
-          temporibus nulla corporis ullam consequuntur minima neque harum
-          incidunt numquam eum molestiae dicta quos quo fugiat sunt voluptatibus
-          odio cum. Ratione sequi fugit eos reprehenderit vero, accusamus vel
-          dolore, placeat illo, mollitia amet. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Recusandae, nostrum sunt molestiae, ipsa
-          laborum libero odio porro cupiditate est expedita similique corporis
-          ex, veritatis in. Tempora saepe laborum voluptas facilis iste
-          pariatur, recusandae reprehenderit sed consequuntur vel consectetur
-          laboriosam necessitatibus doloribus eligendi soluta quos accusamus
-          animi veniam excepturi dolore. Necessitatibus!
-        </p>
-      </div>
-    </section>
-    <div class="favorites">
-      <h2>Your Favorites</h2>
-      <div class="favList">
-        <button id="fav">Song Name</button>
-        <button id="fav">Song Name</button>
-        <button id="fav">Song Name</button>
-      </div>
+    </div>
+
+    <div class="lyrics">
+      <p id="lyrics">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
+        ipsum, quod nisi nemo perferendis asperiores eos praesentium
+        temporibus nulla corporis ullam consequuntur minima neque harum
+        incidunt numquam eum molestiae dicta quos quo fugiat sunt voluptatibus
+        odio cum. Ratione sequi fugit eos reprehenderit vero, accusamus vel
+        dolore, placeat illo, mollitia amet. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Recusandae, nostrum sunt molestiae, ipsa
+        laborum libero odio porro cupiditate est expedita similique corporis
+        ex, veritatis in. Tempora saepe laborum voluptas facilis iste
+        pariatur, recusandae reprehenderit sed consequuntur vel consectetur
+        laboriosam necessitatibus doloribus eligendi soluta quos accusamus
+        animi veniam excepturi dolore. Necessitatibus!
+      </p>
+    </div>
+  </section>
+  <div class="favorites">
+    <h2>Your Favorites</h2>
+    <div class="favList">
+      <button id="fav">Song Name</button>
+      <button id="fav">Song Name</button>
+      <button id="fav">Song Name</button>
     </div>
   </div>
-  
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
     crossorigin="anonymous"></script>
