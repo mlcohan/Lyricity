@@ -10,6 +10,11 @@ function getLyricsApi() {
   fetch(requestUrl)
     .then(function (response) {
       console.log(response);
+      console.log(response.url);
+      var urlString = response.url;
+      if(urlString.indexOf("null") >= 0){
+        document.getElementById('lyrics').innerText = "Can't find anything :(";
+      }
       return response.json();
     })
     .then(function (data) {
