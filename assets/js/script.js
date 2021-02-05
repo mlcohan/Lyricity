@@ -43,10 +43,19 @@ function getLyricsApi() {
     .then(function (data) {
       if(data.lyrics === ""){
         kanye();
+        document.getElementById('songNameDisplay').innerText = "SURPRISE! IT'S KANYE!";
       } else {
         lyrics.innerText = data.lyrics;
       }
     });
+}
+// this is the function to display song title and name below the album pic
+function displayName(song, artist) {
+  document.getElementById('songNameDisplay').innerText = titleCase(song) + " by " + titleCase(artist);
+}
+// this is to titlecase the song and artist
+function titleCase(str) {
+  return str.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
 }
 // toggles the favorite section on click
 favoriteBtn.addEventListener("click", function () {
@@ -75,13 +84,3 @@ searchBtn.addEventListener("click", function (event) {
   getFmApi(song, artist);
   displayName(song, artist);
 });
-function displayName(song, artist) {
-  document.getElementById('songNameDisplay').innerText = titleCase(song) + " by " + titleCase(artist);
-}
-function titleCase(string) {
-  var sentence = string.toLowerCase().split();
-  for(var i = 0; i< sentence.length; i++){
-     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-  }
-return sentence;
-}
