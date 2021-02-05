@@ -21,12 +21,18 @@ favoriteBtn.addEventListener("click", function () {
   const favoriteSection = document.querySelector(".favorites");
   favoriteSection.classList.toggle("slide");
 });
+
+$("#closeFavs").on("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.remove("slide");
+});
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
+  $(".songImg").addClass("animateImg");
   if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
