@@ -27,7 +27,7 @@ searchBtn.addEventListener("click", function (event) {
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
-  if (!song || !artist){
+  if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
     localStorage.setItem("song", song);
