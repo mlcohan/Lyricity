@@ -2,6 +2,7 @@
 var searchBtn = document.getElementById("searchBtn");
 var lyrics = document.getElementById("lyrics");
 const favoriteBtn = document.querySelector("#favoriteTab");
+// calling kanye rest api
 function kanye() {
   $.ajax({
     url: "https://api.kanye.rest",
@@ -11,7 +12,6 @@ function kanye() {
     lyrics.innerHTML = "Sorry, no lyrics but here's a nice quote from Kanye.<br> " + "'" + data.quote + "'<br> - Kanye West";
   });
 }
-
 // defining function that calls the server-side API for lyrics
 function getLyricsApi() {
   var song = encodeURIComponent(localStorage.getItem("song"));
