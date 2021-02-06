@@ -8,7 +8,7 @@ var albumDisplay = document.querySelector(".songImg");
 // calling album cover api
 function getFmApi(song, artist) {
   var requestUrl =
-    "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" +
+    "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" +
     lastFmApiKey +
     "&artist=" +
     artist +
