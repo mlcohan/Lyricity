@@ -77,8 +77,8 @@ searchBtn.addEventListener("click", function (event) {
   if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
-    localStorage.setItem("song", song);
-    localStorage.setItem("artist", artist);
+    localStorage.setItem("song", song.trim());
+    localStorage.setItem("artist", artist.trim());
   }
   getLyricsApi();
   getFmApi(song, artist);
