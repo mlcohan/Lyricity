@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/images/music-icon.svg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Lyricity</title>
-  </head>
-  <body>
-    <header class="head">
-      <h1 id="favoriteTab">Favorites</h1>
-      <h1>Lyricity</h1>
-    </header>
-    <section class="mainpage">
-      <div class="songDisplay">
-        <form action="">
-          <input type="text" placeholder="Song title" id="song"/>
-          <input type="text" placeholder="Artist" id="artist"/>
-          <button class="btn" id="searchBtn">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-        <img class="songImg" src="./assets/images/mic.jpg" alt="meh" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/images/music-icon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Lyricity</title>
+</head>
+
+<body>
+  <header class="head">
+    <h1 id="favoriteTab">Favorites</h1>
+    <h1>Lyricity</h1>
+  </header>
+  <section class="mainpage">
+    <div class="songDisplay">
+      <form action="">
+        <input type="text" placeholder="Song title" id="song" />
+        <input type="text" placeholder="Artist" id="artist" />
+        <button class="btn" id="searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <img class="songImg" src="./assets/images/mic.jpg" alt="meh" />
       <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
       <h2 id="songNameDisplay">Welcome to Lyricity!</h2>
       <button id="heartBtn"><i class="far fa-heart"></i></button>
-      </div>
-      
-      <div class="lyrics">
-        <p id="lyrics">
-         
-          Curious about the lyrics to a song you enjoy? </br>
-          Enter the song name and artist above, the lyrics will display here! </br>
-          You can also save your favorite songs by clicking on the heart!
-
-          
-        </p>
-      </div>
-    </section>
-    <div class="favorites">
-      <h2>Your Favorites</h2>
-      <div class="favList">
-        <button id="fav">Song Name</button>
-        <button id="fav">Song Name</button>
-        <button id="fav">Song Name</button>
-      </div>
-      <button id="closeFavs"><i class="far fa-times-circle"></i></button>
     </div>
+
+    <div class="lyrics">
+      <p id="lyrics">
+
+        Curious about the lyrics to a song you enjoy? </br>
+        Enter the song name and artist above, the lyrics will display here! </br>
+        You can also save your favorite songs by clicking on the heart!
+
+
+      </p>
+    </div>
+  </section>
+  <div class="favorites">
+    <h2>Your Favorites</h2>
+    <div class="favList">
+      <button id="fav">Song Name</button>
+      <button id="fav">Song Name</button>
+      <button id="fav">Song Name</button>
+    </div>
+    <button id="closeFavs"><i class="far fa-times-circle"></i></button>
   </div>
-  
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
     crossorigin="anonymous"></script>
