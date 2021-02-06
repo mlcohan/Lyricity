@@ -128,7 +128,7 @@ html {
   background: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 9.7rem;
+  top: 10vh;
   transition: all ease 0.5s;
   transform: translateX(-50rem);
   opacity: 0;
@@ -200,7 +200,7 @@ html {
 @media screen and (max-width: 1024px) {
   .favorites {
     width: 50%;
-    top: 13.7rem;
+    /* top: 13.7rem; */
   }
   #lyrics {
     width: 95%;
@@ -210,7 +210,7 @@ html {
 @media screen and (max-width: 768px) {
   .favorites {
     width: 50%;
-    top: 10.2rem;
+    /* top: 10.2rem; */
   }
 }
 
@@ -223,7 +223,7 @@ html {
   .favorites {
     width: 100%;
     background: white;
-    top: 8.2rem;
+    /* top: 8.2rem; */
   }
   #favoriteTab:hover {
     color: black;
