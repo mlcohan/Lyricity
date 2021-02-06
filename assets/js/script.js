@@ -20,11 +20,15 @@ function getFmApi(song, artist) {
       return response.json();
     })
     .then(function (data) {
-      albumCover = data.track.album.image[3]["#text"];
+      if (data.track.album){
+        var albumCover = data.track.album.image[3]["#text"];
+        albumDisplay.src = albumCover;
+      }
+      
       if (albumCover == "") {
         albumDisplay.src = "./assets/images/mic.jpg";
       } else {
-        albumDisplay.src = albumCover;
+        
       }
     });
 }
@@ -43,7 +47,7 @@ function kanye() {
   });
 }
 // defining function that calls the server-side API for lyrics
-function getLyricsApi() {
+function getLyricsApi(song, artist) {
   var song = encodeURIComponent(localStorage.getItem("song"));
   var artist = encodeURIComponent(localStorage.getItem("artist"));
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
@@ -98,52 +102,50 @@ searchBtn.addEventListener("click", function (event) {
 });
 
 $("#heartBtn").on("click", function() {
-var song = encodeURIComponent(localStorage.getItem("song"));
-var artist = encodeURIComponent(localStorage.getItem("artist"));
-var heartButton = $("#heart");
-//console.log(heartButton);
-heartButton.removeClass("far");
-heartButton.addClass("fas");
-var newButton = $("<button>");
-newButton.attr("id", "fav");
-newButton.data("song", song)
-newButton.data("artist", artist)
-newButton.text(titleCase(decodeURIComponent(song)) + " by " + titleCase(decodeURIComponent(artist)));
-$(".favList").append(newButton);
-//local storage favorites
-var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
-songArray.push({
-  song: song,
-  artist: artist
-})
-localStorage.setItem("songInfo", JSON.stringify(songArray));
+  var song = encodeURIComponent(localStorage.getItem("song"));
+  var artist = encodeURIComponent(localStorage.getItem("artist"));
+  var heartButton = $("#heart");
+  //console.log(heartButton);
+  heartButton.removeClass("far");
+  heartButton.addClass("fas");
+  var newButton = $("<button>");
+  newButton.attr("id", "fav");
+  newButton.data("song", song)
+  newButton.data("artist", artist)
+  newButton.text(titleCase(decodeURIComponent(song)) + " by " + titleCase(decodeURIComponent(artist)));
+  $(".favList").append(newButton);
+  //local storage favorites
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  songArray.push({
+    song: song,
+    artist: artist
+  })
+  localStorage.setItem("songInfo", JSON.stringify(songArray));
 })
 
-function displayStorage() {
-var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
-for (var i=0; i < songArray.length; i++) {
-var newButton = $("<button>");
-newButton.attr("id", "fav");
-newButton.data("song", songArray[i].song)
-newButton.data("artist", songArray[i].artist)
-var favSong = decodeURIComponent(songArray[i].song)
-var favArtist = decodeURIComponent(songArray[i].artist)
-newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
-$(".favList").append(newButton);
-console.log(songArray[i]);
-}
+function displayStorage(song, artist) {
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  for (var i=0; i < songArray.length; i++) {
+    var newButton = $("<button>");
+    newButton.attr("id", "fav");
+    newButton.data("song", songArray[i].song)
+    newButton.data("artist", songArray[i].artist)
+    var favSong = decodeURIComponent(songArray[i].song)
+    var favArtist = decodeURIComponent(songArray[i].artist)
+    newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
+    $(".favList").append(newButton);
+  }
 }
 
 $(document).on("click", "#fav", function() {
-// var songName = $(this).text().split(" ")[0];
-var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
-var song = $(this).data("song")
-var artist = $(this).data("artist")
-
-getLyricsApi()
-getFmApi(song, artist)
-displayName(decodeURIComponent(song), decodeURIComponent(artist))
-
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  var song = $(this).data("song")
+  var artist = $(this).data("artist")
+  console.log(this);
+  getLyricsApi(song, artist)
+  getFmApi(song, artist)
+  displayName(decodeURIComponent(song), decodeURIComponent(artist))
+  
 })
 
 displayStorage();
