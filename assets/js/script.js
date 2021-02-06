@@ -43,7 +43,9 @@ function kanye() {
       '"' +
       data.quote +
       '"<br> - Kanye West';
-    albumDisplay.src = "./assets/images/kanye-west.jpg";
+    if (albumDisplay.src.includes("mic.jpg")){
+      albumDisplay.src = "./assets/images/kanye-west.jpg";
+    }
   });
 }
 // defining function that calls the server-side API for lyrics
@@ -70,7 +72,7 @@ function displayName(song, artist) {
 }
 // this is to titlecase the song and artist
 function titleCase(str) {
-  return str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
+  return str.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
 }
 // toggles the favorite section on click
 favoriteBtn.addEventListener("click", function () {
