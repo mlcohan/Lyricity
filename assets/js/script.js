@@ -53,8 +53,6 @@ function getLyricsApi() {
     .then(function (data) {
       if (data.lyrics === "") {
         kanye();
-        document.getElementById("songNameDisplay").innerText =
-          "SURPRISE! IT'S KANYE!";
       } else {
         lyrics.innerText = data.lyrics;
       }

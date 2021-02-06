@@ -51,9 +51,19 @@ html {
   min-height: 50vh;
 }
 
+.songDisplay form {
+  transform: translateX(30px);
+}
+
 .songDisplay input {
   padding: 1rem 2rem;
   margin: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+#songNameDisplay {
+  font-size: 2rem;
 }
 
 .btn {
