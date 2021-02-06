@@ -51,12 +51,23 @@ function getLyricsApi() {
       return response.json();
     })
     .then(function (data) {
+<<<<<<< HEAD
       if (data.lyrics === "") {
         kanye();
       } else {
         lyrics.innerText = data.lyrics;
       }
     });
+=======
+      document.getElementById('lyrics').innerText = data.lyrics;
+    })
+  if (data.lyrics === "") {
+    kanye();
+  } else {
+    lyrics.innerText = data.lyrics;
+  }
+});
+>>>>>>> main
 }
 // this is the function to display song title and name below the album pic
 function displayName(song, artist) {
@@ -72,11 +83,14 @@ favoriteBtn.addEventListener("click", function () {
   const favoriteSection = document.querySelector(".favorites");
   favoriteSection.classList.toggle("slide");
 });
+<<<<<<< HEAD
 // toggles the fav section when you click the "X"
 $("#closeFavs").on("click", function () {
   const favoriteSection = document.querySelector(".favorites");
   favoriteSection.classList.remove("slide");
 });
+=======
+>>>>>>> main
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -84,7 +98,6 @@ searchBtn.addEventListener("click", function (event) {
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
-  $(".songImg").addClass("animateImg");
   if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
@@ -92,6 +105,7 @@ searchBtn.addEventListener("click", function (event) {
     localStorage.setItem("artist", artist);
   }
   getLyricsApi();
+<<<<<<< HEAD
   getFmApi(song, artist);
   displayName(song, artist);
 });
@@ -106,3 +120,6 @@ function titleCase(string) {
   }
   return sentence;
 }
+=======
+})
+>>>>>>> main
