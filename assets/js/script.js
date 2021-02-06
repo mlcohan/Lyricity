@@ -20,15 +20,15 @@ function getFmApi(song, artist) {
       return response.json();
     })
     .then(function (data) {
-      if (data.track.album){
-        var albumCover = data.track.album.image[3]["#text"];
+      console.log(data);
+      var albumCover;
+      if (data.track.album) {
+        albumCover = data.track.album.image[3]["#text"];
         albumDisplay.src = albumCover;
       }
-      
-      if (albumCover == "") {
+
+      if (!albumCover) {
         albumDisplay.src = "./assets/images/mic.jpg";
-      } else {
-        
       }
     });
 }
@@ -48,8 +48,8 @@ function kanye() {
 }
 // defining function that calls the server-side API for lyrics
 function getLyricsApi(song, artist) {
-  var song = encodeURIComponent(localStorage.getItem("song"));
-  var artist = encodeURIComponent(localStorage.getItem("artist"));
+  // var song = encodeURIComponent(localStorage.getItem("song"));
+  // var artist = encodeURIComponent(localStorage.getItem("artist"));
   var requestUrl = "https://api.lyrics.ovh/v1/" + artist + "/" + song;
   fetch(requestUrl)
     .then(function (response) {
@@ -85,7 +85,6 @@ $("#closeFavs").on("click", function () {
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  $(".main").addClass("fade");
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
@@ -96,12 +95,12 @@ searchBtn.addEventListener("click", function (event) {
     localStorage.setItem("song", song.trim());
     localStorage.setItem("artist", artist.trim());
   }
-  getLyricsApi();
+  getLyricsApi(song, artist);
   getFmApi(song, artist);
   displayName(song, artist);
 });
 
-$("#heartBtn").on("click", function() {
+$("#heartBtn").on("click", function () {
   var song = encodeURIComponent(localStorage.getItem("song"));
   var artist = encodeURIComponent(localStorage.getItem("artist"));
   var heartButton = $("#heart");
@@ -110,47 +109,52 @@ $("#heartBtn").on("click", function() {
   heartButton.addClass("fas");
   var newButton = $("<button>");
   newButton.attr("id", "fav");
-  newButton.data("song", song)
-  newButton.data("artist", artist)
-  newButton.text(titleCase(decodeURIComponent(song)) + " by " + titleCase(decodeURIComponent(artist)));
+  newButton.data("song", song);
+  newButton.data("artist", artist);
+  newButton.text(
+    titleCase(decodeURIComponent(song)) +
+      " by " +
+      titleCase(decodeURIComponent(artist))
+  );
   $(".favList").append(newButton);
   //local storage favorites
-  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
   songArray.push({
     song: song,
-    artist: artist
-  })
+    artist: artist,
+  });
   localStorage.setItem("songInfo", JSON.stringify(songArray));
-})
+});
 
-function displayStorage(song, artist) {
-  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
-  for (var i=0; i < songArray.length; i++) {
+function displayStorage() {
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
+  for (var i = 0; i < songArray.length; i++) {
     var newButton = $("<button>");
     newButton.attr("id", "fav");
-    newButton.data("song", songArray[i].song)
-    newButton.data("artist", songArray[i].artist)
-    var favSong = decodeURIComponent(songArray[i].song)
-    var favArtist = decodeURIComponent(songArray[i].artist)
+    newButton.data("song", songArray[i].song);
+    newButton.data("artist", songArray[i].artist);
+    var favSong = decodeURIComponent(songArray[i].song);
+    var favArtist = decodeURIComponent(songArray[i].artist);
     newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
     $(".favList").append(newButton);
+    console.log(songArray[i]);
   }
 }
 
-$(document).on("click", "#fav", function() {
-  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
-  var song = $(this).data("song")
-  var artist = $(this).data("artist")
-  console.log(this);
-  getLyricsApi(song, artist)
-  getFmApi(song, artist)
-  displayName(decodeURIComponent(song), decodeURIComponent(artist))
-  
-})
+$(document).on("click", "#fav", function () {
+  // var songName = $(this).text().split(" ")[0];
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
+  var song = $(this).data("song");
+  var artist = $(this).data("artist");
+  $(".songImg").addClass("animateImg");
+  getLyricsApi(song, artist);
+  getFmApi(song, artist);
+  displayName(decodeURIComponent(song), decodeURIComponent(artist));
+});
 
 displayStorage();
 
 //come back to unFavorite-ing
 // $(document).on("click", "#fav", function() {
-// $(".heartbutton") 
+// $(".heartbutton")
 // }
