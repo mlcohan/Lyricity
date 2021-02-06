@@ -4,6 +4,7 @@ var lyrics = document.getElementById("lyrics");
 const favoriteBtn = document.querySelector("#favoriteTab");
 var lastFmApiKey = "8c532e6fce66c0c0cae9e4ef54fbf478";
 var albumDisplay = document.querySelector(".songImg");
+
 // calling album cover api
 function getFmApi(song, artist) {
   var requestUrl =
@@ -96,3 +97,48 @@ searchBtn.addEventListener("click", function (event) {
   displayName(song, artist);
 });
 
+$("#heartBtn").on("click", function() {
+  var song = encodeURIComponent(localStorage.getItem("song"));
+  var artist = encodeURIComponent(localStorage.getItem("artist"));
+  var heartButton = $("#heart");
+  //console.log(heartButton);
+  heartButton.removeClass("far");
+  heartButton.addClass("fas");
+  var newButton = $("<button>");
+  newButton.attr("id", "fav");
+  newButton.text(titleCase(decodeURIComponent(song)) + " by " + titleCase(decodeURIComponent(artist)));
+  $(".favList").append(newButton);
+  //local storage favorites
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  songArray.push({
+    song: song,
+    artist: artist
+  })
+  localStorage.setItem("songInfo", JSON.stringify(songArray));
+})
+
+function displayStorage() {
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+  for (var i=0; i < songArray.length; i++) {
+    var newButton = $("<button>");
+    newButton.attr("id", "fav");
+    var favSong = decodeURIComponent(songArray[i].song)
+    var favArtist = decodeURIComponent(songArray[i].artist)
+    newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
+    $(".favList").append(newButton);
+    console.log(songArray[i]);
+  }
+}
+
+$(document).on("click", "#fav", function() {
+// var songName = $(this).text().split(" ")[0];
+var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+
+})
+
+displayStorage();
+
+//come back to unFavorite-ing
+// $(document).on("click", "#fav", function() {
+// $(".heartbutton") 
+// }
