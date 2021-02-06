@@ -106,7 +106,9 @@ heartButton.removeClass("far");
 heartButton.addClass("fas");
 var newButton = $("<button>");
 newButton.attr("id", "fav");
-newButton.text(decodeURIComponent(song) + " by " + decodeURIComponent(artist));
+newButton.data("song", song)
+newButton.data("artist", artist)
+newButton.text(titleCase(decodeURIComponent(song)) + " by " + titleCase(decodeURIComponent(artist)));
 $(".favList").append(newButton);
 //local storage favorites
 var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
@@ -122,6 +124,8 @@ var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
 for (var i=0; i < songArray.length; i++) {
 var newButton = $("<button>");
 newButton.attr("id", "fav");
+newButton.data("song", songArray[i].song)
+newButton.data("artist", songArray[i].artist)
 var favSong = decodeURIComponent(songArray[i].song)
 var favArtist = decodeURIComponent(songArray[i].artist)
 newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
@@ -133,6 +137,12 @@ console.log(songArray[i]);
 $(document).on("click", "#fav", function() {
 // var songName = $(this).text().split(" ")[0];
 var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+var song = $(this).data("song")
+var artist = $(this).data("artist")
+
+getLyricsApi()
+getFmApi(song, artist)
+displayName(decodeURIComponent(song), decodeURIComponent(artist))
 
 })
 
