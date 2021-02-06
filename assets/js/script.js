@@ -43,7 +43,9 @@ function kanye() {
       '"' +
       data.quote +
       '"<br> - Kanye West';
-    albumDisplay.src = "./assets/images/kanye-west.jpg";
+    if (albumDisplay.src.includes("mic.jpg")){
+      albumDisplay.src = "./assets/images/kanye-west.jpg";
+    }
   });
 }
 // defining function that calls the server-side API for lyrics
