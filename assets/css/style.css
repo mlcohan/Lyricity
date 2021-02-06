@@ -179,6 +179,7 @@ html {
   border-radius: 15px;
   cursor: pointer;
   transition: all ease 0.5s;
+  width: 50%;
 }
 
 #fav:hover {
