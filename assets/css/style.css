@@ -51,9 +51,19 @@ html {
   min-height: 50vh;
 }
 
+.songDisplay form {
+  transform: translateX(30px);
+}
+
 .songDisplay input {
   padding: 1rem 2rem;
   margin: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+
+#songNameDisplay {
+  font-size: 2rem;
 }
 
 .btn {
@@ -139,7 +149,7 @@ html {
   transition: all ease 0.5s;
 }
 #closeFavs:hover {
-  background: rgb(73, 103, 236);
+  background: rgb(11, 114, 248);
   color: black;
 }
 
