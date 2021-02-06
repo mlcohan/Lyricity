@@ -3,7 +3,7 @@
 Title: What's that song?
 
 Project Description:
-    A web-based app that will allow a user to search for songs using music based APIs. Once, the song is found, user will be able to listen to the song, favorite songs, and view lyrics.
+A web-based app that will allow a user to search for songs using music based APIs. Once, the song is found, user will be able to listen to the song, favorite songs, and view lyrics.
 
 User Story:
 
