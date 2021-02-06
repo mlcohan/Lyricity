@@ -4,6 +4,7 @@ var lyrics = document.getElementById("lyrics");
 const favoriteBtn = document.querySelector("#favoriteTab");
 var lastFmApiKey = "8c532e6fce66c0c0cae9e4ef54fbf478";
 var albumDisplay = document.querySelector(".songImg");
+
 // calling album cover api
 function getFmApi(song, artist) {
   var requestUrl =
@@ -89,21 +90,56 @@ searchBtn.addEventListener("click", function (event) {
   if (!song || !artist) {
     alert("Please enter a song AND artist!");
   } else {
-    localStorage.setItem("song", song);
-    localStorage.setItem("artist", artist);
+    localStorage.setItem("song", song.trim());
+    localStorage.setItem("artist", artist.trim());
   }
   getLyricsApi();
   getFmApi(song, artist);
   displayName(song, artist);
 });
-function displayName(song, artist) {
-  document.getElementById("songNameDisplay").innerText =
-    titleCase(song) + " by " + titleCase(artist);
+
+$("#heartBtn").on("click", function() {
+var song = encodeURIComponent(localStorage.getItem("song"));
+var artist = encodeURIComponent(localStorage.getItem("artist"));
+var heartButton = $("#heart");
+//console.log(heartButton);
+heartButton.removeClass("far");
+heartButton.addClass("fas");
+var newButton = $("<button>");
+newButton.attr("id", "fav");
+newButton.text(decodeURIComponent(song) + " by " + decodeURIComponent(artist));
+$(".favList").append(newButton);
+//local storage favorites
+var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+songArray.push({
+  song: song,
+  artist: artist
+})
+localStorage.setItem("songInfo", JSON.stringify(songArray));
+})
+
+function displayStorage() {
+var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+for (var i=0; i < songArray.length; i++) {
+var newButton = $("<button>");
+newButton.attr("id", "fav");
+var favSong = decodeURIComponent(songArray[i].song)
+var favArtist = decodeURIComponent(songArray[i].artist)
+newButton.text(titleCase(favSong) + " by " + titleCase(favArtist));
+$(".favList").append(newButton);
+console.log(songArray[i]);
 }
-function titleCase(string) {
-  var sentence = string.toLowerCase().split();
-  for (var i = 0; i < sentence.length; i++) {
-    sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-  }
-  return sentence;
 }
+
+$(document).on("click", "#fav", function() {
+// var songName = $(this).text().split(" ")[0];
+var songArray = JSON.parse(localStorage.getItem("songInfo")) || []; 
+
+})
+
+displayStorage();
+
+//come back to unFavorite-ing
+// $(document).on("click", "#fav", function() {
+// $(".heartbutton") 
+// }
