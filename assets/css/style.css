@@ -13,6 +13,7 @@ html {
 /* Header Section */
 .head {
   min-height: 10vh;
+  max-height: 10vh;
   background: rgb(31, 29, 29);
   color: white;
   display: flex;
@@ -124,6 +125,7 @@ html {
 
 .favorites {
   min-height: 90vh;
+  max-height: 90vh;
   width: 23%;
   background: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -133,6 +135,7 @@ html {
   transform: translateX(-50rem);
   opacity: 0;
   border-bottom-right-radius: 15px;
+  overflow-y: scroll;
 }
 
 #closeFavs {
