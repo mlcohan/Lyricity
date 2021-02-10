@@ -87,16 +87,14 @@ $("#closeFavs").on("click", function () {
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
+  $("#heart").removeClass("fas");
+  $("#heart").addClass("far");
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
   $(".songImg").addClass("animateImg");
-  if (!song || !artist) {
-    alert("Please enter a song AND artist!");
-  } else {
-    localStorage.setItem("song", song.trim());
-    localStorage.setItem("artist", artist.trim());
-  }
+  localStorage.setItem("song", song.trim());
+  localStorage.setItem("artist", artist.trim());
   getLyricsApi(song, artist);
   getFmApi(song, artist);
   displayName(song, artist);
@@ -144,8 +142,8 @@ function displayStorage() {
 }
 
 $(document).on("click", "#fav", function () {
-  // var songName = $(this).text().split(" ")[0];
-  var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
+  $("#heart").removeClass("far");
+  $("#heart").addClass("fas");
   var song = $(this).data("song");
   var artist = $(this).data("artist");
   $(".songImg").addClass("animateImg");
@@ -155,8 +153,3 @@ $(document).on("click", "#fav", function () {
 });
 
 displayStorage();
-
-//come back to unFavorite-ing
-// $(document).on("click", "#fav", function() {
-// $(".heartbutton")
-// }
