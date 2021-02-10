@@ -5,6 +5,69 @@ const favoriteBtn = document.querySelector("#favoriteTab");
 var lastFmApiKey = "8c532e6fce66c0c0cae9e4ef54fbf478";
 var albumDisplay = document.querySelector(".songImg");
 
+//Event listeners
+// toggles the favorite section on click
+favoriteBtn.addEventListener("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.toggle("slide");
+});
+
+// toggles the fav section when you click the "X"
+$("#closeFavs").on("click", function () {
+  const favoriteSection = document.querySelector(".favorites");
+  favoriteSection.classList.remove("slide");
+});
+
+const form = document.querySelector("#form");
+
+searchBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (!form.checkValidity()) {
+    $("#valMessage").removeClass("hide");
+    return;
+  }
+  $("#valMessage").addClass("hide");
+  $("#heart").removeClass("fas");
+  $("#heart").addClass("far");
+  var button = $(this);
+  var song = button.siblings("#song").val();
+  var artist = button.siblings("#artist").val();
+  $(".songImg").addClass("animateImg");
+  localStorage.setItem("song", song.trim());
+  localStorage.setItem("artist", artist.trim());
+  getLyricsApi(song, artist);
+  getFmApi(song, artist);
+  displayName(song, artist);
+});
+
+$("#heartBtn").on("click", function () {
+  var song = encodeURIComponent(localStorage.getItem("song"));
+  var artist = encodeURIComponent(localStorage.getItem("artist"));
+  var heartButton = $("#heart");
+  //console.log(heartButton);
+  heartButton.removeClass("far");
+  heartButton.addClass("fas");
+  var newButton = $("<button>");
+  newButton.attr("id", "fav");
+  newButton.data("song", song);
+  newButton.data("artist", artist);
+  newButton.text(
+    titleCase(decodeURIComponent(song)) +
+    " by " +
+    titleCase(decodeURIComponent(artist))
+  );
+  $(".favList").append(newButton);
+  //local storage favorites
+  var songArray = JSON.parse(localStorage.getItem("songInfo")) || [];
+  songArray.push({
+    song: song,
+    artist: artist,
+  });
+  localStorage.setItem("songInfo", JSON.stringify(songArray));
+});
+
+//Functions
+
 // calling album cover api
 function getFmApi(song, artist) {
   var requestUrl =
