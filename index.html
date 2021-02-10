@@ -26,13 +26,14 @@
     </header>
     <section class="mainpage">
       <div class="songDisplay">
-        <form action="">
+        <form id="form">
           <input type="text" placeholder="Song title" id="song" required/>
           <input type="text" placeholder="Artist" id="artist" required/>
-          <button class="btn" id="searchBtn">
+          <button class="btn" id="searchBtn" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </form>
+        <p id="valMessage" class="hide">🎵 Please enter both a song and an artist 🎵</p>
         <img class="songImg" src="./assets/images/mic.jpg" alt="meh" />
       
       <h2 id="songNameDisplay">Welcome to Lyricity!</h2> 
@@ -53,7 +54,10 @@
       </div>
     </section>
     <div class="favorites">
+      <div class="contain">
       <h2>Your Favorites</h2>
+      <button class="clear">Clear</button>
+    </div>
       <div class="favList"></div>
       <button id="closeFavs"><i class="far fa-times-circle"></i></button>
     </div>

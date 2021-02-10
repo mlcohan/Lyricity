@@ -63,8 +63,20 @@ html {
   font-size: 1.5rem;
 }
 
+#valMessage {
+  color: red;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
 #songNameDisplay {
   font-size: 2rem;
+  margin: 2rem;
 }
 
 .btn {
@@ -136,6 +148,32 @@ html {
   opacity: 0;
   border-bottom-right-radius: 15px;
   overflow-y: scroll;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear {
+  padding: 1rem 2rem;
+  width: 30%;
+  background: blue;
+  padding: 1rem;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all ease 0.5s;
+}
+
+.clear:hover {
+  background: rgb(11, 114, 248);
+  color: black;
 }
 
 #closeFavs {
@@ -215,6 +253,9 @@ html {
     width: 50%;
     /* top: 10.2rem; */
   }
+  .songDisplay form {
+    transform: translateX(0px);
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -233,5 +274,8 @@ html {
     border-radius: 15px;
     background: white;
     padding: 1rem;
+  }
+  .songDisplay form {
+    transform: translateX(0px);
   }
 }
