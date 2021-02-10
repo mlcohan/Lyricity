@@ -24,15 +24,16 @@
   </header>
   <section class="mainpage">
     <div class="songDisplay">
-      <form action="">
-        <input type="text" placeholder="Song title" id="song" />
-        <input type="text" placeholder="Artist" id="artist" />
-        <button class="btn" id="searchBtn">
+      <form id="form">
+        <input type="text" placeholder="Song title" id="song" required />
+        <input type="text" placeholder="Artist" id="artist" required />
+        <button class="btn" id="searchBtn" type="submit">
           <i class="fas fa-search"></i>
         </button>
       </form>
+      <p id="valMessage" class="hide">🎵 Please enter both a song and an artist 🎵</p>
       <img class="songImg" src="./assets/images/mic.jpg" alt="meh" />
-      <button class="btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
+
       <h2 id="songNameDisplay">Welcome to Lyricity!</h2>
       <button id="heartBtn">
         <i class="far fa-heart" id="heart"></i>
@@ -48,14 +49,20 @@
 
 
       </p>
+
+      </p>
     </div>
   </section>
   <div class="favorites">
-    <h2>Your Favorites</h2>
+    <div class="contain">
+      <h2>Your Favorites</h2>
+      <button class="clear">Clear</button>
+    </div>
     <div class="favList"></div>
     <button id="closeFavs"><i class="far fa-times-circle"></i></button>
   </div>
-  </div>
+  </section>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="

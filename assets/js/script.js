@@ -43,7 +43,7 @@ function kanye() {
       '"' +
       data.quote +
       '"<br> - Kanye West';
-    if (albumDisplay.src.includes("mic.jpg")){
+    if (albumDisplay.src.includes("mic.jpg")) {
       albumDisplay.src = "./assets/images/kanye-west.jpg";
     }
   });
@@ -72,7 +72,7 @@ function displayName(song, artist) {
 }
 // this is to titlecase the song and artist
 function titleCase(str) {
-  return str.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase());
+  return str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase());
 }
 // toggles the favorite section on click
 favoriteBtn.addEventListener("click", function () {
@@ -84,9 +84,18 @@ $("#closeFavs").on("click", function () {
   const favoriteSection = document.querySelector(".favorites");
   favoriteSection.classList.remove("slide");
 });
+
+const form = document.querySelector("#form");
 // new code for localStorage, stores the song and artist inputs
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
+  if (!form.checkValidity()) {
+    $("#valMessage").removeClass("hide");
+    return;
+  }
+  $("#valMessage").addClass("hide");
+  $("#heart").removeClass("fas");
+  $("#heart").addClass("far");
   var button = $(this);
   var song = button.siblings("#song").val();
   var artist = button.siblings("#artist").val();
@@ -152,6 +161,11 @@ $(document).on("click", "#fav", function () {
   getLyricsApi(song, artist);
   getFmApi(song, artist);
   displayName(decodeURIComponent(song), decodeURIComponent(artist));
+});
+
+$(".clear").on("click", function () {
+  localStorage.clear();
+  $(".favList").empty();
 });
 
 displayStorage();
