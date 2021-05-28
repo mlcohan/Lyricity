@@ -52,5 +52,5 @@ Screenshot 5:
 
 ## Links to Deployed App
 
-https://github.com/mlcohan/team9<br>
-https://mlcohan.github.io/team9/
+https://github.com/mlcohan/Lyricity<br>
+https://mlcohan.github.io/Lyricity
